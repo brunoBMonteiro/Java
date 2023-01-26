@@ -1,8 +1,7 @@
-package org.example.parametrização;
+package org.example.optional;
 
-public class ComportamentoPorParametro {
+public class OptionalExemplo {
     public static void main(String[] args) {
         System.out.println("Hello, World!");
-
     }
 }
