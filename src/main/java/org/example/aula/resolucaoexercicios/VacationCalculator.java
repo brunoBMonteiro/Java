@@ -1,5 +1,6 @@
 package org.example.aula.resolucaoexercicios;
 
+import java.util.Objects;
 import java.util.Scanner;
 import java.util.stream.Stream;
 
@@ -27,9 +28,13 @@ public class VacationCalculator {
     }
 
     private static double calculateVacationValue(double salary, int monthsWorked) {
-        return salary * monthsWorked / 12 + (salary * monthsWorked / 12) / 3;
+        if (monthsWorked > 5) return salary * monthsWorked / 12 + (salary * monthsWorked / 12) / 3;
+
+        else System.out.println("O funcionário não tem direito a férias");
+        return 0;
     }
     /*
+    return salary * monthsWorked / 12 + (salary * monthsWorked / 12) / 3;
 
     return Stream.of(salary * monthsWorked / 12, (salary * monthsWorked / 12) / 3)
             .mapToDouble(Double::doubleValue)
