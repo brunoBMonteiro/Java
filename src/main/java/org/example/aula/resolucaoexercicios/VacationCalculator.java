@@ -1,8 +1,7 @@
 package org.example.aula.resolucaoexercicios;
 
-import java.util.Objects;
 import java.util.Scanner;
-import java.util.stream.Stream;
+//import java.util.stream.Stream;
 
 /*
 Desenvolva uma solução para calcular quanto um funcionário deverá receber por suas férias.
@@ -17,6 +16,7 @@ public class VacationCalculator {
         System.out.print("Digite o salário do funcionário: ");
         double salary = input.nextDouble();
 
+        System.out.println("Digite a quantidade de meses trabalhados somente numeros inteiros de meses");
         System.out.print("Digite a quantidade de meses trabalhados: ");
         int monthsWorked = input.nextInt();
 
@@ -28,12 +28,18 @@ public class VacationCalculator {
     }
 
     private static double calculateVacationValue(double salary, int monthsWorked) {
-        if (monthsWorked > 5) return salary * monthsWorked / 12 + (salary * monthsWorked / 12) / 3;
+        if (monthsWorked > 12) return salary * monthsWorked / 12 + (salary * monthsWorked / 12) / 3;
 
         else System.out.println("O funcionário não tem direito a férias");
         return 0;
     }
+
     /*
+    //Ternário JAVA
+    return (monthsWorked > 12)
+        ? (salary * monthsWorked / 12) + ((salary * monthsWorked / 12) / 3)
+        : 0;
+
     return salary * monthsWorked / 12 + (salary * monthsWorked / 12) / 3;
 
     return Stream.of(salary * monthsWorked / 12, (salary * monthsWorked / 12) / 3)
@@ -44,5 +50,33 @@ public class VacationCalculator {
         valorFerias += valorFerias / 3.0;
         valorFerias = valorFerias*2 / 3.0;
         return valorFerias;
+     */
+
+    /*
+
+        System.out.print("Digite a quantidade de dias trabalhados além dos meses: ");
+        int diasTrabalhadosAlemMeses = scanner.nextInt();
+
+        if (mesesTrabalhados > 12 || (mesesTrabalhados == 12 && diasTrabalhadosAlemMeses >= 15)) {
+            double valorFerias = calcularValorFerias(salario, mesesTrabalhados, diasTrabalhadosAlemMeses);
+            System.out.println("O funcionário tem direito a receber R$" + valorFerias + " de férias.");
+        } else {
+            System.out.println("O funcionário não tem direito a férias pois possui menos de 12 meses e 15 dias trabalhados.");
+        }
+
+        scanner.close();
+    }
+
+    public static double calcularValorFerias(double salario, int mesesTrabalhados, int diasTrabalhadosAlemMeses) {
+        double valorBase = (salario * mesesTrabalhados) / 12;
+        double valorTotal = valorBase + (valorBase / 3);
+
+        if (diasTrabalhadosAlemMeses >= 15) {
+            valorTotal += (salario / 30) * diasTrabalhadosAlemMeses;
+        }
+
+        return valorTotal;
+    }
+}
      */
 }
